@@ -272,9 +272,13 @@ def main(window):
     
     player = Player(100, 100, 50, 50)
     fire = Fire(650, HEIGHT - block_size - 64, 16, 32)
+    fire2 = Fire(990, HEIGHT - block_size - 64, 16, 32)
+    fire3 = Fire(1480, HEIGHT - block_size - 255, 16, 32)
     fire.on()
+    fire2.on()
+    fire3.on()
     floor = [Block(i * block_size, HEIGHT - block_size, block_size) for i in range(-WIDTH // block_size, WIDTH * 2 // block_size)]
-    objects = [*floor, Block(0, HEIGHT - block_size * 2, block_size), Block(0, HEIGHT - block_size * 3, block_size),Block(0, HEIGHT - block_size * 4, block_size), Block(0, HEIGHT - block_size * 5, block_size), Block(block_size * 4, HEIGHT - block_size * 3, block_size), Block(block_size * 5, HEIGHT - block_size * 3, block_size), Block(block_size * 7, HEIGHT - block_size * 4, block_size), fire]
+    objects = [*floor, Block(0, HEIGHT - block_size * 2, block_size), Block(0, HEIGHT - block_size * 3, block_size),Block(0, HEIGHT - block_size * 4, block_size), Block(0, HEIGHT - block_size * 5, block_size), Block(block_size * 4, HEIGHT - block_size * 3, block_size), Block(block_size * 5, HEIGHT - block_size * 3, block_size), Block(block_size * 7, HEIGHT - block_size * 4, block_size), Block(block_size * 9, HEIGHT - block_size * 2, block_size), Block(block_size * 11, HEIGHT - block_size * 2, block_size), Block(block_size * 11, HEIGHT - block_size * 3, block_size), Block(block_size * 12, HEIGHT - block_size * 4, block_size), Block(block_size * 14, HEIGHT - block_size * 3, block_size), Block(block_size * 15, HEIGHT - block_size * 3, block_size), Block(block_size * 17, HEIGHT - block_size * 4, block_size), Block(block_size * 18, HEIGHT - block_size * 5, block_size), Block(block_size * 19, HEIGHT - block_size * 5, block_size), fire, fire2, fire3]
     
     offset_x = 0
     scroll_area_width = 250
@@ -294,6 +298,8 @@ def main(window):
             
         player.loop(FPS)
         fire.loop()
+        fire2.loop()
+        fire3.loop()
         handle_move(player, objects)
         
         draw(window, background, bg_image, player, objects, offset_x)
